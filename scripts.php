@@ -1,5 +1,5 @@
 <?php
-function getSongs(searchKey) {
+function getSongs($searchKey) {
     global $dbConn;
 
     $sql = "SELECT * FROM Song WHERE songName LIKE :songName ";
@@ -12,6 +12,11 @@ function getSongs(searchKey) {
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     return $records;
+
+}
+
+function getArtists($searchKey) {
+   echo $searchKey;
 
 }
  ?>

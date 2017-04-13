@@ -1,6 +1,11 @@
 <?php
 include 'scripts.php';
-include 'con/dbConnection.php';
+
+
+  if (isset($_GET['Search'])) {
+    getArtists("Testing from a script!");
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,10 +28,7 @@ include 'con/dbConnection.php';
                        <option value="genre">Artist</option>
                      </select>
                 
-                     <input type="submit" value="Search" />
-            
-            
-            
+                     <input type="submit" value="Search" name="Search" />
         </form>
         <br />
         <hr>
