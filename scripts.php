@@ -42,12 +42,13 @@
             
             
             $output = $output . "
-                <tr>
+                <tr class='table-tr'>
                     <td id='imagetd' width = '100'>
                         <img src='img/CoverArt/default.png' width='100' alt='Missing Cover Art'>
                     </td>
-                    <td onclick='showData()' >".$List[$i]."</td>
+                    <td>".$List[$i]."</td>
                 </tr>
+               
             ";
         }
         return $output;
