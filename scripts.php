@@ -24,7 +24,6 @@
         $stmt = $dbConn -> prepare ($sql);
         $stmt -> execute($namedParameters);
         $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
         return $records;
     }
 
@@ -77,11 +76,11 @@
         ";
         foreach($songs as $song) {
 
-            
             $output = $output . "
                 <tr>
                     <td id='imagetd' width = '100'>
-                        <img src='img/CoverArt/default.png' width='100' alt='Missing Cover Art'>
+    
+                        <img src='img/CoverArt/".$song["artistName"].".jpg' width='100' alt='Missing Cover Art'>
                     </td>
                     <td onclick='showData()' >\"" . $song["songName"] . "\" by " . $song["artistName"] . " </td>
                 </tr>

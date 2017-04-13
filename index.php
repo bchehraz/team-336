@@ -1,6 +1,6 @@
 <?php
     include 'scripts.php';
-    
+
     global $success;
     if (isset($_GET['Search'])) {
         if(validate($_GET['name']) == true){
@@ -42,8 +42,6 @@
             $success = false;
         }
 
-        //$searchKey = $_GET["name"];
-        //getSongs($searchKey);
     }
     function displayList(){
         global $success;
@@ -56,9 +54,6 @@
         }
     }
     
-    function Test(){
-        return "FACK";
-    }
     
     //these functions return the session's last searched parameters and saves them into the form instead of resetting
     function getLastSearch() {
@@ -112,31 +107,52 @@
                 </thead>
                 <tbody>
                     <?php
-                    
-                    //Input array of songs to be displayed
-                    $input = array("Song1", "Song2", "Song3");
-                    
-                     for($i = 0; $i < count($input); $i++): 
-                        
+                    $songName = array();
+                    $artistName = array();
+                    $genre = array();
+                     if (isset($_GET['Search'])) {
+                        if(validate($_GET['name']) == true){
+                            if(validate($_GET['filter']) == true){
+                                $success = true;
+                                if (validate($_GET['sortPref']) == true) {
+                                    $searchKey = $_GET["name"];
+                                    $filter = $_GET['filter'];
+                                    $pref = $_GET['sortPref'];
+                                    $songs = getSongs($searchKey,$pref,$filter); 
+                                    
+                                    
+                                    foreach($songs as $song) {
+                                        array_push($songName, $song["songName"]);
+                                        array_push($artistName, $song["artistName"]);
+                                        array_push($genre, $song["genre"]);
+                                    }
+                                    
+                                }
+                            }
+                        }
+                     }
+                     for($i = 0; $i < count($songName); $i++): 
                     ?>
                     <tr class="hover">
                        
                         <td width = '100'>
-                            <img src='img/CoverArt/<?php echo $input[$i]?>.png' width='100' alt='Missing Cover Art'>
+                            <img src='img/CoverArt/<?php echo str_replace(' ', '', $artistName[$i]); ?>.jpg' width='100' alt='Missing Cover Art'>
                         </td>
                         <td colspan="2">
-                            <?php echo $input[$i]; ?>
+                            <?php echo $songName[$i]; ?>
                         </td>
                     </tr>
                     <tr id="second">
                         <td>
-                             Artist Name
+                            <?php echo $artistName[$i] ?>
                         </td>
+                        <?php 
+                            if($_GET['filter'] == "genre"){
+                                echo "<td>".$genre[$i]."</td>";
+                            }
+                        ?>
                         <td>
-                             Genre
-                        </td>
-                        <td>
-                             Link
+                             Price: $0.99
                         </td>
                     </tr>
                     <?php endfor; ?>
