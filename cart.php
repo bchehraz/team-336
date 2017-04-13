@@ -1,17 +1,14 @@
 <?php
 
-//Load the cart; otherwise create empty cart and store into session.
-if (isset($_SESSION["shoppingCart"]) && !empty($_SESSION["shoppingCart"])) {
+function addToCart($songName) { // havent tested, check it out - to add other params just concatinate to the string $songName when storing into $cart
     global $cart;
-    $cart = $_SESSION["shoppingCart"];
-} else {
-    $cart = array();
-    $_SESSION["shoppingCart"] = $cart;
+    if (isset($_SESSION["shoppingCart"]) && !empty($_SESSION["shoppingCart"])) {
+        $cart = $_SESSION["shoppingCart"];
+    } else {
+        $cart = array();
+    }
+    $cart[count($cart)] = $songName;
+    $_SESSION["shoppingCart"] = $cart; // if this function was called in the first place, should store to session shoppingCart
 }
 
-function addToCart($songName, $artistName) {
-    //not sure if another global $cart is necessary
-    global $cart;
-    $cart[count($cart)] = $songName;
-}
 ?>
