@@ -4,7 +4,7 @@
     function getSongs($searchKey) {
         $dbConn = getDBConnection("music_db");
     
-        $sql = "SELECT * FROM Song WHERE songName LIKE :songName ";
+        $sql = "SELECT * FROM song WHERE songName LIKE :songName ORDER BY songName";
     
         $namedParameters[':songName'] = '%' . $searchKey . '%';
     

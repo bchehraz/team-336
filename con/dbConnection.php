@@ -1,5 +1,5 @@
 <?php
-include '../inc/credentials.php';
+include '../../inc/credentials.php';
 
 function getDBConnection($dbname) {
     $host = "localhost";
