@@ -1,14 +1,8 @@
 <?php
-include 'scripts.php';
-<<<<<<< HEAD
-=======
-
-
-  if (isset($_GET['Search'])) {
-    getArtists("Testing from a script!");
-  }
-
->>>>>>> e9792fcd7e14614dc651d128c1409d402aa53d66
+    include 'scripts.php';
+    if (isset($_GET['Search'])) {
+        validate($_GET['name']);
+    }
 ?>
 <!DOCTYPE html>
 <html>

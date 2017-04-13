@@ -16,8 +16,8 @@
         return $records;
     }
 
-    function getArtists($searchKey) {
-       echo $searchKey;
+    function validate($searchKey) {
+       echo strlen($searchKey);
     
     }
  ?>
