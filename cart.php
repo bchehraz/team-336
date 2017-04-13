@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 //Load the cart; otherwise create empty cart and store into session.
 if (isset($_SESSION["shoppingCart"]) && !empty($_SESSION["shoppingCart"])) {
     global $cart;
@@ -12,6 +10,7 @@ if (isset($_SESSION["shoppingCart"]) && !empty($_SESSION["shoppingCart"])) {
 }
 
 function addToCart($songName, $artistName) {
+    //not sure if another global $cart is necessary
     global $cart;
     $cart[count($cart)] = $songName;
 }
