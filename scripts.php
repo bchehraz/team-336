@@ -6,7 +6,6 @@
     
         $sql = "SELECT * FROM Song WHERE songName LIKE :songName ";
     
-    
         $namedParameters[':songName'] = '%' . $searchKey . '%';
     
         $stmt = $dbConn -> prepare ($sql);

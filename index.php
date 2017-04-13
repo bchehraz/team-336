@@ -1,14 +1,9 @@
 <?php
 include 'scripts.php';
-<<<<<<< HEAD
-=======
-
-
-  if (isset($_GET['Search'])) {
-    getArtists("Testing from a script!");
-  }
-
->>>>>>> e9792fcd7e14614dc651d128c1409d402aa53d66
+    if(isset($_GET["Search"]) && isset($_GET["name"])){
+        $searchKey = $_GET["name"];
+        getSongs($searchKey);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,8 +16,7 @@ include 'scripts.php';
     <body>
         <h1>Music Search</h1>
         
-        <form>
-            
+        <form id="SearchAction" action="" method="GET" enctype="multipart/form-data">
             Search Music: <input type="text" name="name"/>
       Search Filters:<select name="Search Music">
                        <option value="">Select One</option>
@@ -31,7 +25,7 @@ include 'scripts.php';
                        <option value="genre">Artist</option>
                      </select>
                 
-                     <input type="submit" value="Search" name="Search" />
+                     <input type="submit" value="Search" name="Search"/>
         </form>
         <br />
         <hr>
