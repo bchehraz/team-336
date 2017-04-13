@@ -24,10 +24,6 @@
             return getOutputToScreen(array("Song1", "Song2", "Song3"), $_GET['SearchMusic']);
         }
     }
-    
-    function Test(){
-        return "FACK";
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,6 +61,8 @@
                 </thead>
                 <tbody>
                     <?php
+                    
+                    //Input array of songs to be displayed
                     $input = array("Song1", "Song2", "Song3");
                     
                      for($i = 0; $i < count($input); $i++): 
@@ -73,7 +71,7 @@
                     <tr class="hover">
                        
                         <td width = '100'>
-                            <img src='img/CoverArt/default.png' width='100' alt='Missing Cover Art'>
+                            <img src='img/CoverArt/<?php echo $input[$i]?>.png' width='100' alt='Missing Cover Art'>
                         </td>
                         <td colspan="2">
                             <?php echo $input[$i]; ?>
