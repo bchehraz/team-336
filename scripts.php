@@ -7,7 +7,7 @@
         $sql = "SELECT * FROM Song WHERE songName LIKE :songName ";
     
     
-        $namedParameters[':songName'] = '%' . $_GET['name'] . '%';
+        $namedParameters[':songName'] = '%' . $searchKey . '%';
     
         $stmt = $dbConn -> prepare ($sql);
         $stmt -> execute($namedParameters);
