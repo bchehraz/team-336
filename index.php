@@ -72,6 +72,7 @@
     function getPrefSort($sort) {
         return isset($_SESSION["search_sort"]) && $_SESSION["search_sort"] == $sort ? "selected" : "";
     }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,11 +99,87 @@
                      </select>
                          <input type="submit" value="Search" name="Search"/>
             </form>
-            <div id="SearchList">
-                <table width='100%' style='text-align:center'>
-                    <?=displayList()?>
-                </table>
-            </div>
+            
+          
+        <div id="SearchList">
+            <table id="List" width='100%' style='text-align:center'>
+                <thead>
+                    <tr>
+                        <th>Cover Art</th>
+                        <th colspan="2">Song</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    
+                    //Input array of songs to be displayed
+                    $input = array("Song1", "Song2", "Song3");
+                    
+                     for($i = 0; $i < count($input); $i++): 
+                        
+                    ?>
+                    <tr class="hover">
+                       
+                        <td width = '100'>
+                            <img src='img/CoverArt/<?php echo $input[$i]?>.png' width='100' alt='Missing Cover Art'>
+                        </td>
+                        <td colspan="2">
+                            <?php echo $input[$i]; ?>
+                        </td>
+                    </tr>
+                    <tr id="second">
+                        <td>
+                             Artist Name
+                        </td>
+                        <td>
+                             Genre
+                        </td>
+                        <td>
+                             Link
+                        </td>
+                    </tr>
+                    <?php endfor; ?>
+                </tbody>
+            </table>
+            <div>
+            <script>
+            function addRowHandlers() {
+                var table = document.getElementById("List");
+                var rows = table.getElementsByTagName("tr");
+                for (i = 0; i < rows.length; i++) {
+                    var currentRow = table.rows[i];
+                    var next = table.rows[i+1];
+                    var createClickHandler = 
+                        function(row, nextrow) 
+                        {
+                            return function() { 
+                                var cell = nextrow.getElementsByTagName("td")[0];
+                                        var id = cell.innerHTML;
+                                                    var hidden = nextrow;
+                                                    id = id.toString().replace(" ","");;
+                                                    if(nextrow.id == "second"){
+                                                         if(hidden.offsetParent === null ){
+                                                            hidden.style.display = "table-row"
+                                                        
+                                                        }else{
+                                                        
+                                                            hidden.style.display = "none";
+                                                                     
+                                                        }
+                                                    }
+                                             };
+                        };
+            
+                    currentRow.onclick = createClickHandler(currentRow, next);
+                    
+                }
+            }
+            window.onload = addRowHandlers();
+        </script>
+</div>
+        </div>
+          
             <br />
             <hr>
             <br />

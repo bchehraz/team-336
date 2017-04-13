@@ -14,9 +14,20 @@ body{
     border-left-width: 0px; 
 }
 
+.hover :hover{
+    cursor:pointer;
+    background-color: #ccc;
+}
+
 #SearchList table #imagetd {
     border: 1px solid black;
     border-right-width: 0px; 
+}
+
+#second{
+     display:none;
+     width:100%;
+     background-color: #ccc;
 }
 
 #content{
