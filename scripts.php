@@ -6,7 +6,6 @@
     
         $sql = "SELECT * FROM Song WHERE songName LIKE :songName ";
     
-    
         $namedParameters[':songName'] = '%' . $searchKey . '%';
     
         $stmt = $dbConn -> prepare ($sql);
@@ -16,8 +15,16 @@
         return $records;
     }
 
-    function validate($searchKey) {
-       echo strlen($searchKey);
+    function validate($value) {
+       if(strlen($value) > 2){
+           return "true";
+       }else{
+           return "false";
+       }
     
+    }
+    
+    function displayError($Error){
+        echo $Error;
     }
  ?>
