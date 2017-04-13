@@ -17,9 +17,9 @@
 
     function validate($value) {
        if(strlen($value) > 2){
-           return "true";
+           return true;
        }else{
-           return "false";
+           return false;
        }
     
     }

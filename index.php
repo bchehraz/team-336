@@ -2,16 +2,16 @@
     include 'scripts.php';
     global $success;
     if (isset($_GET['Search'])) {
-        if(validate($_GET['name']) == "true"){
-            if(validate($_GET['SearchMusic']) == "true"){
-                $success = "true";
+        if(validate($_GET['name']) == true){
+            if(validate($_GET['SearchMusic']) == true){
+                $success = true;
             }else{
                 displayError("Please make sure to select a search filter!");
-                $success = "false";
+                $success = false;
             }
         }else{
             displayError("Please make sure you enter more than 3 characters into the search!");
-            $success = "false";
+            $success = false;
         }
 
         //$searchKey = $_GET["name"];
@@ -19,7 +19,7 @@
     }
     function displayList(){
         global $success;
-        if(isset($_GET['Search']) && $success == "true"){
+        if(isset($_GET['Search']) && $success){
             //getSongs($searchKey); output an array into this function
             return getOutputToScreen(array("Song1", "Song2", "Song3"), $_GET['SearchMusic']);
         }
