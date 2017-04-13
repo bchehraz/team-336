@@ -1,5 +1,14 @@
 <?php
 include 'scripts.php';
+<<<<<<< HEAD
+=======
+
+
+  if (isset($_GET['Search'])) {
+    getArtists("Testing from a script!");
+  }
+
+>>>>>>> e9792fcd7e14614dc651d128c1409d402aa53d66
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,10 +31,7 @@ include 'scripts.php';
                        <option value="genre">Artist</option>
                      </select>
                 
-                     <input type="submit" value="Search" />
-            
-            
-            
+                     <input type="submit" value="Search" name="Search" />
         </form>
         <br />
         <hr>

@@ -15,4 +15,9 @@
     
         return $records;
     }
+
+    function getArtists($searchKey) {
+       echo $searchKey;
+    
+    }
  ?>
