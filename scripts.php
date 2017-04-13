@@ -27,4 +27,29 @@
     function displayError($Error){
         echo $Error;
     }
+    
+    function getOutputToScreen(array $List, $title){
+        $output = "
+          <tr width = '100'>
+            <th>Cover Art</th> 
+            <th>".$title."</th> 
+          </tr>
+         ";
+         
+         
+        for($i = 0; $i < count($List); $i++){
+            
+            
+            
+            $output = $output . "
+                <tr>
+                    <td id='imagetd' width = '100'>
+                        <img src='img/CoverArt/default.png' width='100' alt='Missing Cover Art'>
+                    </td>
+                    <td onclick='showData()' >".$List[$i]."</td>
+                </tr>
+            ";
+        }
+        return $output;
+    }
  ?>
