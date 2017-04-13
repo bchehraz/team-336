@@ -1,6 +1,5 @@
 <?php
 include 'scripts.php';
-include 'con/dbConnection.php';
 ?>
 <!DOCTYPE html>
 <html>
