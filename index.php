@@ -111,7 +111,6 @@
                     $artistName = array();
                     $genre = array();
                      if (isset($_GET['Search'])) {
-                        if(validate($_GET['name']) == true){
                             if(validate($_GET['filter']) == true){
                                 $success = true;
                                 if (validate($_GET['sortPref']) == true) {
@@ -129,7 +128,6 @@
                                     
                                 }
                             }
-                        }
                      }
                      for($i = 0; $i < count($songName); $i++): 
                     ?>
